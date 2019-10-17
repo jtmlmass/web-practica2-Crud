@@ -39,7 +39,7 @@
                         </div>
                         <div class="form-row form-group">
                             <div class="col">
-                                <input name="matricula" type="text" class="form-control" placeholder="Matricula">
+                                <input name="matricula" type="number" min="0" class="form-control" placeholder="Matricula">
                             </div>
                             <div class="col">
                                 <input name="telefono" type="text" class="form-control" placeholder="Telefono">

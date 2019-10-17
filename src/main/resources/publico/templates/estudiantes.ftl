@@ -46,8 +46,14 @@
                                 <td>${estudiante.apellido}</td>
                                 <td>${estudiante.telefono}</td>
                                 <td>
-                                    <button class="btn btn-secondary" href="/editarEstudiante/${estudiante.matricula}">Editar</button>
-                                    <button class="btn btn-danger" href="/eliminarEstudiante/${estudiante.matricula}" type="submit">Eliminar</button>
+                                    <div class="row justify-content-center">
+                                        <form action="/editarEstudiante/${estudiante.matricula?string["0"]}" method="get">
+                                            <button type="submit" class="btn btn-secondary">Editar</button>
+                                        </form>
+                                        <form action="/eliminarEstudiante/${estudiante.matricula?string["0"]}" method="get">
+                                            <button type="submit" class="btn btn-danger" >Eliminar</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         </#list>

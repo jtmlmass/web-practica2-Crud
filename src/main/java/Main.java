@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+
     public static void main(String[] args) {
         staticFiles.location("publico");
         //Configuración para asignar donde se conseguiran todos los ftl de Freemarker
@@ -29,6 +30,8 @@ public class Main {
         estudiantes.add(estudiante1);
         estudiantes.add(estudiante2);
         estudiantes.add(estudiante3);
+
+
 
         //Donde se mostrara la lista de Estudiantes o tambien decir la Tabla de ellos
         Spark.get("/estudiantes/", (request, response) -> {
@@ -70,22 +73,32 @@ public class Main {
             return "";
         });
 
-        Spark.get("/editarEstudiante/", (request, response) -> {
+        Spark.get("/editarEstudiante/:matricula", (request, response) -> {
+            int matricula = Integer.parseInt(request.params("matricula"));
+            Estudiante estudiante = null;
+            for(Estudiante e : estudiantes){
+                if(e.getMatricula() == matricula){
+                    estudiante = e;
+                }
+            }
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("titulo", tituloApp);
+            attributes.put("tituloCard", "Editar Estudiante");
+            attributes.put("estudiante", estudiante);
             return new ModelAndView(attributes, "editarEstudiante.ftl");
         }, freeMarkerEngine);
 
-        Spark.post("/editarEstudiante/:matricula", (request, response) -> {
+        Spark.post("/editar/:matricula", (request, response) -> {
             int matricula = Integer.parseInt(request.params("matricula"));
             String nombre = request.queryParams("nombre");
             String apellido = request.queryParams("apellido");
             String telefono = request.queryParams("telefono");
-            Estudiante estudiante = new Estudiante(matricula, nombre, apellido, telefono);
+            int nuevaMatricula = Integer.parseInt(request.queryParams("nuevaMatricula"));
+            Estudiante estudiante = new Estudiante(nuevaMatricula, nombre, apellido, telefono);
             int posEstudiante = 0;
             for (Estudiante auxEstudiante: estudiantes) {
-                if(auxEstudiante.getMatricula() == estudiante.getMatricula()) {
-                    estudiantes.set(posEstudiante, auxEstudiante);
+                if(auxEstudiante.getMatricula() == matricula) {
+                    estudiantes.set(posEstudiante, estudiante);
                     break;
                 }else{
                     posEstudiante+=1;

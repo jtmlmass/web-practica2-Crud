@@ -8,7 +8,7 @@
     <!-- Bootstrap core CSS -->
     <link href="./Album example · Bootstrap_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link href="/publico/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
@@ -18,46 +18,46 @@
     <!-- Custom styles for this template -->
     <link href="./Album example · Bootstrap_files/album.css" rel="stylesheet">
 </head>
-<body>
 <#include "*/navbar.ftl">
-<main role="main">
-    <section class="jumbotron text-center">
-        <form>
-            <div class="form-row">
-                <div class="col">
-                    <label>
-                        Nombre
-                        <input type="text" class="form-control" value="${estudiante.nombre}" placeholder="Nombre">
-                    </label>
+<body>
+<div class="container">
+    <div class="row justify-content-lg-center">
+        <div class="col col-lg-9 my-auto">
+            <div class="card text-center border-dark mb-3">
+                <div class="card-header">
+                    <h3><strong>${tituloCard}</strong></h3>
                 </div>
-                <div class="col">
-                    <label>
-                        Apellido
-                        <input type="text" class="form-control" value="${estudiante.apellido}" placeholder="Apellido">
-                    </label>
+                <div class="card-body">
+                    <form action="/editar/${estudiante.matricula?string["0"]}" method="post">
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <input name="nombre" type="text" class="form-control" value="${estudiante.nombre}" placeholder="Nombre">
+                            </div>
+                            <div class="col">
+                                <input name="apellido" type="text" class="form-control" value="${estudiante.apellido}" placeholder="Apellido">
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="col">
+                                <input name="nuevaMatricula" type="number" min="0" value="${estudiante.matricula?string["0"]}" class="form-control" placeholder="Matricula">
+                            </div>
+                            <div class="col">
+                                <input name="telefono" type="text" class="form-control" value="${estudiante.telefono}" placeholder="Telefono">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-auto my-1">
+                                <button type="submit" class="btn btn-primary">Agregar</button>
+                            </div>
+                            <div class="col-auto my-1">
+                                <button type="reset" href="/estudiantes/" class="btn btn-danger">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="col">
-                    <label>
-                        Matricula
-                        <input type="text" class="form-control" value="${estudiante.matricula}" placeholder="Matricula">
-                    </label>
-                </div>
-                <div class="col">
-                    <label>
-                        Telefono
-                        <input type="text" class="form-control" value="${estudiante.telefono}" placeholder="Telefono">
-                    </label>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-primary">Agregar</button>
-                </div>
-            </div>
-        </form>
-    </section>
-</main>
+        </div>
+    </div>
+</div>
 </body>
 </html>
