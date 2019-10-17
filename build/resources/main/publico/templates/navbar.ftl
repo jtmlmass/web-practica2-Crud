@@ -1,25 +1,14 @@
 <header>
-    <div class="bg-dark collapse" id="navbarHeader" style="">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <form action="/agregarEstudiante" method="post"  enctype="application/x-www-form-urlencoded">
-                        <button type="submit" class="btn btn-danger btn-block"> Log out</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="https://getbootstrap.com/docs/4.3/examples/album/#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <a class="navbar-brand d-flex text-white">
                 <strong>${titulo}</strong>
             </a>
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0" action="/agregarEstudianteForm/">
+                    <button type="submit" class="btn btn-outline-success my-2 my-sm-0"> Agregar estudiante</button>
+                </form>
+            </div>
         </div>
     </div>
 </header>
