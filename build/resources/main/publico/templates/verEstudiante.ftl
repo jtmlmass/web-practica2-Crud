@@ -28,29 +28,26 @@
                     <h3><strong>${tituloCard}</strong></h3>
                 </div>
                 <div class="card-body">
-                    <form action="/editar/${estudiante.matricula?string["0"]}" method="post">
+                    <form action="/" method="get">
                         <div class="form-row form-group">
                             <div class="col">
-                                <input name="nombre" type="text" class="form-control" value="${estudiante.nombre}" placeholder="Nombre">
+                                <input name="nombre" type="text" class="form-control" value="${estudiante.nombre}" placeholder="Nombre" disabled>
                             </div>
                             <div class="col">
-                                <input name="apellido" type="text" class="form-control" value="${estudiante.apellido}" placeholder="Apellido">
+                                <input name="apellido" type="text" class="form-control" value="${estudiante.apellido}" placeholder="Apellido" disabled>
                             </div>
                         </div>
                         <div class="form-row form-group">
                             <div class="col">
-                                <input name="nuevaMatricula" type="number" min="0" value="${estudiante.matricula?string["0"]}" class="form-control" placeholder="Matricula">
+                                <input name="nuevaMatricula" type="number" min="0" value="${estudiante.matricula?string["0"]}" class="form-control" placeholder="Matricula" disabled>
                             </div>
                             <div class="col">
-                                <input name="telefono" type="text" class="form-control" value="${estudiante.telefono}" placeholder="Telefono">
+                                <input name="telefono" type="text" class="form-control" value="${estudiante.telefono}" placeholder="Telefono" disabled>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-auto my-1">
-                                <button type="submit" class="btn btn-primary">Agregar</button>
-                            </div>
-                            <div class="col-auto my-1">
-                                <button type="submit" class="btn btn-light"><a href="/">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Salir</button>
                             </div>
                         </div>
                     </form>

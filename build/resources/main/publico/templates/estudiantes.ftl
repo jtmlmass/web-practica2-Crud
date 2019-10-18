@@ -47,10 +47,12 @@
                                 <td>${estudiante.telefono}</td>
                                 <td>
                                     <div class="row justify-content-center">
+                                        <form action="/verEstudiante/${estudiante.matricula?string["0"]}" method="get">
+                                            <button type="submit" class="btn btn-primary">Detalles</button>
+                                        </form>
                                         <form action="/editarEstudiante/${estudiante.matricula?string["0"]}" method="get">
                                             <button type="submit" class="btn btn-secondary">Editar</button>
                                         </form>
-                                        <br/>
                                         <form action="/eliminarEstudiante/${estudiante.matricula?string["0"]}" method="get">
                                             <button type="submit" class="btn btn-danger" >Eliminar</button>
                                         </form>

@@ -88,6 +88,21 @@ public class Main {
             return new ModelAndView(attributes, "editarEstudiante.ftl");
         }, freeMarkerEngine);
 
+        Spark.get("/verEstudiante/:matricula", (request, response) -> {
+            int matricula = Integer.parseInt(request.params("matricula"));
+            Estudiante estudiante = null;
+            for(Estudiante e : estudiantes){
+                if(e.getMatricula() == matricula){
+                    estudiante = e;
+                }
+            }
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("titulo", tituloApp);
+            attributes.put("tituloCard", "Estudiante: " + estudiante.getNombre());
+            attributes.put("estudiante", estudiante);
+            return new ModelAndView(attributes, "verEstudiante.ftl");
+        }, freeMarkerEngine);
+
         Spark.post("/editar/:matricula", (request, response) -> {
             int matricula = Integer.parseInt(request.params("matricula"));
             String nombre = request.queryParams("nombre");

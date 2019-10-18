@@ -50,7 +50,7 @@
                                 <button type="submit" class="btn btn-primary">Agregar</button>
                             </div>
                             <div class="col-auto my-1">
-                                <button type="reset" href="/estudiantes/" class="btn btn-danger">Cancelar</button>
+                                <button type="submit" class="btn btn-light"><a href="/">Cancelar</button>
                             </div>
                         </div>
                     </form>
