@@ -50,7 +50,7 @@
                                 <button type="submit" class="btn btn-primary">Agregar</button>
                             </div>
                             <div class="col-auto my-1">
-                                <button type="submit" class="btn btn-light"><a href="/">Cancelar</button>
+                                <button type="reset" class="btn btn-light"><a href="/">Cancelar</button>
                             </div>
                         </div>
                     </form>
